@@ -1,0 +1,27 @@
+.App{
+    border: 1px solid black;
+    box-sizing: border-box;
+    height: 100vh;
+    margin: auto;
+    padding: 0 8vw;
+    text-align: center;
+    overflow-y: auto;
+    overflow-x: auto;
+    background-color: #e8f5e9;
+
+}
+.App h1{
+    border: 1px solid #174d3f;
+    margin: 5px 0 10px 0;
+    padding: 10px;
+    color: white;
+    background-color: #1e6955;
+    box-shadow:  2px 2px 0px  #40937e,  -2px -2px 0px  #40937e,  -2px 2px 0px  #40937e,  2px -2px 0px  #40937e;
+    border-radius: 5px;
+}
+
+@media (max-width: 600px) {
+    .App {
+        width: 100vw;
+    }
+}
