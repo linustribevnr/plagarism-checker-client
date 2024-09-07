@@ -51,7 +51,7 @@ function CheckPlag() {
         const apiUrl = process.env.REACT_APP_API_URL;
         const res = await axios.post(
           `${apiUrl}/getResults`,
-          bodyPackage
+          bodyPackage    
         );
         // console.log("RESULT : \n", res.data.Data);
         
