@@ -46,7 +46,7 @@ function CheckPlag() {
         contest: enteredContestSlug,
         challenge: [challengeSlug[1]],
         cutoff: data[`cutoff${challengeSlug[0]}`],
-      };
+      };  
       try {
         const apiUrl = process.env.REACT_APP_API_URL;
         const res = await axios.post(
