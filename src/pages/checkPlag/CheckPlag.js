@@ -41,7 +41,7 @@ function CheckPlag() {
         newStatus[challengeSlug[0]] = 1;
         return newStatus;
       });
-
+   
       const bodyPackage = {
         contest: enteredContestSlug,
         challenge: [challengeSlug[1]],
