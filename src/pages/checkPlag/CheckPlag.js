@@ -11,9 +11,8 @@ import "./CheckPlag.css";
 
 function CheckPlag() {
   const [challengeSlugIds, setChallengeSlugIds] = useState([1]);
-  const [contestSlug, setContestSlug] = useState();
-  const [challengeSlugs, setChallengeSlugs] = useState([]);
   const [results, setResults] = useState([]);
+
 
   const [runningPlagCheck, setRunningPlagCheck] = useState(false);
   const [individualStatus, setIndividualStatus] = useState([0,0]);
@@ -21,8 +20,8 @@ function CheckPlag() {
   const {
     register,
     handleSubmit,
-    watch,
-    formState: { errors },
+    // watch,
+    // formState: { errors },
   } = useForm();
 
   const onSubmit = async (data) => {
@@ -34,8 +33,6 @@ function CheckPlag() {
       data[`challengeSlug${id}`],
     ]);
     const enteredContestSlug = data.contestSlug;
-    setChallengeSlugs(enteredChallengeSlugs);
-    setContestSlug(enteredContestSlug);
 
     for (const challengeSlug of enteredChallengeSlugs) {
       // update the running status
@@ -135,7 +132,7 @@ function CheckPlag() {
 
                 {/* Riple */}
                 {
-                  individualStatus[challengeSlugId] == 1 
+                  individualStatus[challengeSlugId] === 1 
                   && 
                   <div className=" col-1 options">
                     <Riple className="option-icon" color="#32cd32" size="small" text="" textColor="" />
@@ -144,7 +141,7 @@ function CheckPlag() {
 
                 {/* Done icon */}
                 {
-                  individualStatus[challengeSlugId] == 2 
+                  individualStatus[challengeSlugId] === 2 
                   && 
                   <div className="col-1 options">
                     <RiVerifiedBadgeFill color="green" className="option-icon" />
@@ -153,7 +150,7 @@ function CheckPlag() {
 
                 {/* Error icon */}
                 {
-                  individualStatus[challengeSlugId] == 3 
+                  individualStatus[challengeSlugId] === 3 
                   && 
                   <div className="col-1 options"> 
                     <BiSolidErrorAlt color="red" className="option-icon" />
@@ -168,7 +165,7 @@ function CheckPlag() {
                     <button className="h-75 w-75"
                       onClick={() =>
                         setChallengeSlugIds(
-                          challengeSlugIds.filter((id) => id != challengeSlugId)
+                          challengeSlugIds.filter((id) => id !== challengeSlugId)
                     )}>
                       <RiDeleteBin6Fill  className=" option-icon" />
                     </button>
@@ -226,14 +223,14 @@ function CheckPlag() {
               {item.links.map((link, linkKey)=>
                 <p className="links">
                   {link[0]} 
-                  <a href={link[1]} target="_blank">{link[1]}</a>
+                  <a href={link[1]} rel="noreferrer" target="_blank">{link[1]}</a>
                 </p>)}
             </div>
           ))
         }
       </div>
     </div>
-  );
+  ); 
 }
 
 export default CheckPlag;
