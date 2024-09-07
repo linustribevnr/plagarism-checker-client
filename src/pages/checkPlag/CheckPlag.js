@@ -59,7 +59,7 @@ function CheckPlag() {
           const newResults = [...prevResults, { challenge: challengeSlug[1], links: res.data.Data }];
           console.log("Updated results -> ", newResults);
           return newResults;
-        });
+        });     
   
         setIndividualStatus((prevStatus) => {
           const newStatus = [...prevStatus];
