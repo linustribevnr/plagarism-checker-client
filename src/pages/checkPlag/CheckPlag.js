@@ -36,7 +36,7 @@ function CheckPlag() {
 
     for (const challengeSlug of enteredChallengeSlugs) {
       // update the running status
-      setIndividualStatus((prevStatus) => {
+      setIndividualStatus((prevStatus) => { 
         const newStatus = [...prevStatus];
         newStatus[challengeSlug[0]] = 1;
         return newStatus;
