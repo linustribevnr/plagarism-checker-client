@@ -16,21 +16,7 @@ function CertGen() {
     const formData = new FormData();
     formData.append("certificateTemplate", data.certificateTemplate[0]);
     formData.append("excelSheet", data.excelSheet[0]);
-
-    try {
-      const apiUrl = process.env.REACT_APP_API_URL;
-      const res = await axios.post(`${apiUrl}/uploadCertData`, formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
-      setUploadStatus("success");
-      console.log("Response Data: ", res.data);
-    } catch (error) {
-      setUploadStatus("error");
-      console.log("ERROR:", error);
-    } finally {
-      setLoading(false);
+    // should write fetch
     }
   };
 
