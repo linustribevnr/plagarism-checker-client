@@ -17,7 +17,6 @@ function CertGen() {
     formData.append("certificateTemplate", data.certificateTemplate[0]);
     formData.append("excelSheet", data.excelSheet[0]);
     // should write fetch
-    }
   };
 
   return (
