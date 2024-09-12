@@ -1,73 +1,81 @@
-.check-plag{
-    /* border: 1px solid red; */
-    /* border:1px solid black; */
-}
-
 .check-plag form{
     background-color: rgba(255, 255, 255, 0.673); 
-    padding: 10px;
-    box-sizing: border-box;
-    box-shadow:  2px 2px 0px gray,  -2px -2px 0px gray,  -2px 2px 0px gray,  2px -2px 0px gray;
+    padding: 30px;
     border-radius: 10px;
 }
 
-.challenge-lable{
-    text-align: start;
+
+.contest-lable, .challenge-lable {
+    display: flex;
+    padding-right: 10px;
 }
-.contest-lable{
-    text-align: start;
-}
-.challenge-inputs{
-    /* border:1px solid green ; */
-    text-align: start;
+
+.contest-input{
+    padding: 0px;
 }
 
 .contest-input input{
     height:40px;
+    padding-left: 10px;
 }
 
 .challenge-input{
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    margin: 10px 0;
+    margin-bottom: 15px;
+    
 }
 .challenge-input  input{
-    height:50px;
-    /* width:90%; */
+    height:40px;
+    padding-left: 10px;
     border-radius: 5px;
     border : 1px solid black;
     align-items: center;
+    margin-right: 10px;
 }
 .challenge-input button{
     /* width: 5%; */
-    border: 1px solid red;
-    background-color: rgba(255, 0, 0, 0.908);
+    background-color: rgba(255, 0, 0, 0.676);
     border-radius: 5px;
     color: white;
-    padding: 0;
-    font-size: larger;
-
+    padding: 1px;
+    font-size: large;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .add-challenge{
     padding: 5px;
-    background-color: #0d6dfc;
+    background-color: #206d4ece;
     color: white;
-    border: 1px solid blue;
+    border : none;
     border-radius: 5px;
+    display: flex;
+    justify-content: flex-start;
+    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
 
 .submit-btn{
-    margin-top: 20px;
-    border: 1px solid #1e6955;
+    margin-top: 40px;
     padding: 10px;
     background-color: #1e6955;
     color:white;
+    border: none;
     border-radius: 10px;
     font-weight: bolder;
+    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+.dustbin {
+    border: none;
+    width: 50px;
+    margin-top: 6px;
+    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+.dustbin:hover {
+    transform: scale(1.1); /* Creates the pop effect */
+    background-color: rgb(242, 13, 13); /* Slightly darker red on hover */
 }
 
 .plag-results{
@@ -81,17 +89,27 @@
 }
 
 .plag-results h2{
-    margin: 0 0 10px 0;
+    margin: 0px;
     color: #1e6955;
     font-weight: bold;
 }
 
-a:link{
+.submit-btn:hover {
+    transform: scale(1.1); 
+    background-color: #174d3f;
+}
+
+.add-challenge:hover {
+    transform: scale(1.1); 
+    background-color: #16533bce;
+}
+
+/* a:link{
     color: blue;
 }
 a:visited{
     color: red;
-}
+} */
 
 .links{
     width: 100%;

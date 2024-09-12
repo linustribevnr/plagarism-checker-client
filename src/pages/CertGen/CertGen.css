@@ -1,0 +1,50 @@
+.cert-gen form {
+    background-color: rgba(255, 255, 255, 0.673);
+    padding: 30px;
+    border-radius: 10px;
+  }
+  
+  .template-label, .sheet-label {
+    display: flex;
+    padding-right: 10px;
+  }
+  
+  .template-input, .sheet-input {
+    align-items: center;
+  }
+  
+  .template-input input, .sheet-input input {
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+  }
+  
+  .submit-btn {
+    margin-top: 40px;
+    padding: 10px;
+    background-color: #1e6955;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: bolder;
+    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  }
+  
+  .submit-btn:hover {
+    transform: scale(1.1);
+    background-color: #174d3f;
+  }
+  
+  .success-msg {
+    color: green;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+  
+  .error-msg {
+    color: red;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+  
