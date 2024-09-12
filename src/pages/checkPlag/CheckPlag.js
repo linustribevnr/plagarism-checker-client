@@ -36,22 +36,22 @@ function CheckPlag() {
 
     for (const challengeSlug of enteredChallengeSlugs) {
       // update the running status
-      setIndividualStatus((prevStatus) => {
+      setIndividualStatus((prevStatus) => { 
         const newStatus = [...prevStatus];
         newStatus[challengeSlug[0]] = 1;
         return newStatus;
       });
-
+   
       const bodyPackage = {
         contest: enteredContestSlug,
         challenge: [challengeSlug[1]],
         cutoff: data[`cutoff${challengeSlug[0]}`],
-      };
+      };  
       try {
         const apiUrl = process.env.REACT_APP_API_URL;
         const res = await axios.post(
           `${apiUrl}/getResults`,
-          bodyPackage
+          bodyPackage    
         );
         // console.log("RESULT : \n", res.data.Data);
         
@@ -59,7 +59,7 @@ function CheckPlag() {
           const newResults = [...prevResults, { challenge: challengeSlug[1], links: res.data.Data }];
           console.log("Updated results -> ", newResults);
           return newResults;
-        });
+        });     
   
         setIndividualStatus((prevStatus) => {
           const newStatus = [...prevStatus];
