@@ -4,6 +4,53 @@
     border-radius: 10px;
 }
 
+.form-label{
+    font-weight: 450;
+}
+
+.input:focus {
+    box-shadow: none;
+    outline: 1px solid #1e6955;
+    border: 1px solid #1e6955;
+    transition: outline 0.1s ease-in-out, border 0.1s ease-in-out;
+  }
+
+.bg-custom {
+    background-color: #1e6955 !important;
+  }
+  
+.text-custom {
+    color: #1e6955 !important;
+  }
+  
+.btn-custom:hover {
+    background-color: #1c5948 !important;
+    border-color: #1e6955 !important;
+    color: white;
+    transform: scale(1.1); 
+}
+.bg-custom,.btn-custom {
+    background-color: #1e6955; 
+    color: white;
+    border: none;
+    transition: all 0.3s ease-in-out
+  }
+
+.text-white {
+    color: white !important;
+  }
+  
+  
+.btn-outline-custom {
+    border: 2px solid #1e6955;
+    transition: all 0.3s ease-in-out
+  }
+  
+.btn-outline-custom:hover {
+    background-color: #1e6955;
+    color: white;
+    transform: scale(1.04); 
+  }
 
 .contest-lable, .challenge-lable {
     display: flex;
@@ -46,7 +93,7 @@
 }
 .add-challenge{
     padding: 5px;
-    background-color: #206d4ece;
+    background-color: #1f6046ca;
     color: white;
     border : none;
     border-radius: 5px;
@@ -68,23 +115,19 @@
 
 .dustbin {
     border: none;
-    width: 50px;
-    margin-top: 6px;
     transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
 
 .dustbin:hover {
-    transform: scale(1.1); /* Creates the pop effect */
-    background-color: rgb(242, 13, 13); /* Slightly darker red on hover */
+    transform: scale(1.15); 
 }
-
+ 
 .plag-results{
     margin-top: 20px;
     text-align: start;
     background-color: rgba(255, 255, 255, 0.673); 
     padding: 10px;
     box-sizing: border-box;
-    /* box-shadow:  2px 2px 0px gray,  -2px -2px 0px gray,  -2px 2px 0px gray,  2px -2px 0px gray; */
     border-radius: 10px;
 }
 
@@ -101,15 +144,8 @@
 
 .add-challenge:hover {
     transform: scale(1.1); 
-    background-color: #16533bce;
+    background-color: #206d4e;
 }
-
-/* a:link{
-    color: blue;
-}
-a:visited{
-    color: red;
-} */
 
 .links{
     width: 100%;
@@ -118,12 +154,14 @@ a:visited{
 
 a{
     overflow: auto;
-    width: 100%;
     display: block;
 }
 
+.lang{
+    font-weight: 400;
+}
+
 .options{
-    /* border: 1px solid black; */
     padding: 0;
     display: flex;
     justify-items: center;
@@ -135,8 +173,6 @@ a{
 .option-icon{
     height: 100%;
     width: 100%;
-    /* border: 1px solid red; */
-    /* background-color: gray; */
 }
 
 @media (min-width: 600px) {
@@ -145,3 +181,6 @@ a{
         width: 50%;
     }
 }
+
+
+  

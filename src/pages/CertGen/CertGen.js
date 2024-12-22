@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { Commet } from "react-loading-indicators";
+import { Spinner } from "react-bootstrap";
 import "./CertGen.css";
 
 function CertGen() {
   const [uploadStatus, setUploadStatus] = useState(null);
   const [loading, setLoading] = useState(false);
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
   const onSubmit = async (data) => {
     setLoading(true);
@@ -15,56 +19,118 @@ function CertGen() {
     const formData = new FormData();
     formData.append("certificateTemplate", data.certificateTemplate[0]);
     formData.append("excelSheet", data.excelSheet[0]);
-    // should write fetch
+
+    try {
+      const apiUrl = process.env.REACT_APP_API_URL;
+      const response = await fetch(`${apiUrl}/upload`, {
+        method: "POST",
+        body: formData,
+      });
+      if (response.ok) {
+        setUploadStatus("success");
+      } else {
+        setUploadStatus("error");
+      }
+    } catch (error) {
+      console.error("Error uploading files:", error);
+      setUploadStatus("error");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
-    <div className="cert-gen">
-      <form className="form-container" onSubmit={handleSubmit(onSubmit)}>
-        <div className="template-info row">
-          <div className="template-label col-md-4">
-            <h4 className="ms-5">Certificate Template:</h4>
-          </div>
-          <div className="template-input col-md-6">
-            <input
-              className="w-100 border border-dark rounded"
-              type="file"
-              name="certificateTemplate"
-              {...register("certificateTemplate", { required: true })}
-            />
-          </div>
+    <div className="container">
+      <div className="card shadow-sm">
+        <div className="card-header bg-custom text-white text-center">
+          <h2 className="mb-0">Certificate Generator</h2>
+        </div>
+        <div className="card-body">
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-3">
+            <div className="mb-3 row">
+              <div className="col-md-4">
+                <label htmlFor="certificateTemplate" className="form-label">
+                  Certificate Template
+                </label>
+              </div>
+              <div className="col-md-8">
+                <input
+                  id="certificateTemplate"
+                  type="file"
+                  className={`form-control ${errors.certificateTemplate ? "is-invalid" : ""}`}
+                  {...register("certificateTemplate", {
+                    required: "Certificate Template is required",
+                  })}
+                />
+                {errors.certificateTemplate && (
+                  <div className="invalid-feedback">
+                    {errors.certificateTemplate.message}
+                  </div>
+                )}
+              </div>
+            </div>
+
+            <div className="mb-3 row">
+              <div className="col-md-4">
+                <label htmlFor="excelSheet" className="form-label">
+                  Excel Sheet
+                </label>
+              </div>
+              <div className="col-md-8">
+                <input
+                  id="excelSheet"
+                  type="file"
+                  className={`form-control ${errors.excelSheet ? "is-invalid" : ""}`}
+                  accept=".xlsx, .xls"
+                  {...register("excelSheet", {
+                    required: "Excel Sheet is required",
+                  })}
+                />
+                {errors.excelSheet && (
+                  <div className="invalid-feedback">
+                    {errors.excelSheet.message}
+                  </div>
+                )}
+              </div>
+            </div>
+
+            <div className="text-center">
+              <button
+                type="submit"
+                className="btn btn-custom"
+                disabled={loading}
+              >
+                {loading ? (
+                  <>
+                    <Spinner
+                      animation="grow"
+                      border="none"
+                      size="sm"
+                      variant="success"
+                      className="me-2"
+                      role="status"
+                    />
+                    Uploading...
+                  </>
+                ) : (
+                  "Upload Files"
+                )}
+              </button>
+            </div>
+          </form>
         </div>
 
-        <div className="sheet-info row mt-4">
-          <div className="sheet-label col-md-4">
-            <h4 className="ms-5">Excel Sheet:</h4>
+        {uploadStatus === "success" && (
+          <div className="alert alert-success mt-4 text-center" role="alert">
+            Files uploaded successfully!
           </div>
-          <div className="sheet-input col-md-6">
-            <input
-              className="w-100 border border-dark rounded"
-              type="file"
-              name="excelSheet"
-              accept=".xlsx, .xls"
-              {...register("excelSheet", { required: true })}
-            />
+        )}
+        {uploadStatus === "error" && (
+          <div className="alert alert-danger mt-4 text-center" role="alert">
+            Failed to upload files. Please try again.
           </div>
-        </div>
-
-        <button
-          className={`submit-btn ${loading && "p-0 bg-transparent border-white"}`}
-          type="submit"
-          disabled={loading}
-        >
-          {loading ? (
-            <Commet color="#32cd32" size="small" text="Uploading" textColor="#32cd32" />
-          ) : (
-            "Upload"
-          )}
-        </button>
-      </form>
-
-      {uploadStatus === "success" && <p className="success-msg">Files uploaded successfully!</p>}
-      {uploadStatus === "error" && <p className="error-msg">Failed to upload files. Please try again.</p>}
+        )}
+      </div>
     </div>
   );
 }

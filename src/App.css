@@ -9,6 +9,12 @@
     background-color: #cadccb;
 
 }
+.logo img {
+  height: 40px;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
 .App h1{
     margin: 5px 0 20px 0;
     padding: 5px;
@@ -22,10 +28,12 @@
     display: flex;
     justify-content: center;
     margin: 20px;
+    align-content: center;
   }
+
   
   .tab-link {
-    margin: 0 15px; 
+    margin: 0 15px;
     padding: 10px 20px;
     text-decoration: none;
     background-color: rgba(255, 255, 255, 0.673);
@@ -33,7 +41,13 @@
     font-weight: 500;
     border-radius: 5px;
     transition: background-color 0.3s;
+    white-space: nowrap;
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    text-align: center;
   }
+  
   
   .tab-link:hover {
     background-color: #1e695535;
@@ -48,4 +62,15 @@
     .App {
         width: 100vw;
     }
+}
+
+.logo-tabs-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between; 
+
+  @media (max-width: 768px) {
+    flex-direction: column; 
+  }
 }
