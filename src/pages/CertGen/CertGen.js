@@ -134,7 +134,7 @@ function CertGen() {
     drawCertificateOnCanvas({ name: null, date: null });
   };
   const handlePreviewCertificate = (formData) => {
-    const { emailSubject, emailBody, coordinates, image } = formData;
+    // const { emailSubject, emailBody, coordinates, image } = formData;
 
     // actual preview logic
   };
