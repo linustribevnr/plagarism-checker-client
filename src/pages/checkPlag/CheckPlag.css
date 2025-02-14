@@ -1,96 +1,150 @@
-.check-plag{
-    /* border: 1px solid red; */
-    /* border:1px solid black; */
-}
-
 .check-plag form{
     background-color: rgba(255, 255, 255, 0.673); 
-    padding: 10px;
-    box-sizing: border-box;
-    box-shadow:  2px 2px 0px gray,  -2px -2px 0px gray,  -2px 2px 0px gray,  2px -2px 0px gray;
+    padding: 30px;
     border-radius: 10px;
 }
 
-.challenge-lable{
-    text-align: start;
+.form-label{
+    font-weight: 450;
 }
-.contest-lable{
-    text-align: start;
+
+.input:focus {
+    box-shadow: none;
+    outline: 1px solid #1e6955;
+    border: 1px solid #1e6955;
+    transition: outline 0.1s ease-in-out, border 0.1s ease-in-out;
+  }
+
+.bg-custom {
+    background-color: #1e6955 !important;
+  }
+  
+.text-custom {
+    color: #1e6955 !important;
+  }
+  
+.btn-custom:hover {
+    background-color: #1c5948 !important;
+    border-color: #1e6955 !important;
+    color: white;
+    transform: scale(1.1); 
 }
-.challenge-inputs{
-    /* border:1px solid green ; */
-    text-align: start;
+.bg-custom,.btn-custom {
+    background-color: #1e6955; 
+    color: white;
+    border: none;
+    transition: all 0.3s ease-in-out
+  }
+
+.text-white {
+    color: white !important;
+  }
+  
+  
+.btn-outline-custom {
+    border: 2px solid #1e6955;
+    transition: all 0.3s ease-in-out
+  }
+  
+.btn-outline-custom:hover {
+    background-color: #1e6955;
+    color: white;
+    transform: scale(1.04); 
+  }
+
+.contest-lable, .challenge-lable {
+    display: flex;
+    padding-right: 10px;
+}
+
+.contest-input{
+    padding: 0px;
 }
 
 .contest-input input{
     height:40px;
+    padding-left: 10px;
 }
 
 .challenge-input{
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    margin: 10px 0;
+    margin-bottom: 15px;
+    
 }
 .challenge-input  input{
-    height:50px;
-    /* width:90%; */
+    height:40px;
+    padding-left: 10px;
     border-radius: 5px;
     border : 1px solid black;
     align-items: center;
+    margin-right: 10px;
 }
 .challenge-input button{
     /* width: 5%; */
-    border: 1px solid red;
-    background-color: rgba(255, 0, 0, 0.908);
+    background-color: rgba(255, 0, 0, 0.676);
     border-radius: 5px;
     color: white;
-    padding: 0;
-    font-size: larger;
-
+    padding: 1px;
+    font-size: large;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .add-challenge{
     padding: 5px;
-    background-color: #0d6dfc;
+    background-color: #1f6046ca;
     color: white;
-    border: 1px solid blue;
+    border : none;
     border-radius: 5px;
+    display: flex;
+    justify-content: flex-start;
+    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
 
 .submit-btn{
-    margin-top: 20px;
-    border: 1px solid #1e6955;
+    margin-top: 40px;
     padding: 10px;
     background-color: #1e6955;
     color:white;
+    border: none;
     border-radius: 10px;
     font-weight: bolder;
+    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
 
+.dustbin {
+    border: none;
+    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+.dustbin:hover {
+    transform: scale(1.15); 
+}
+ 
 .plag-results{
     margin-top: 20px;
     text-align: start;
     background-color: rgba(255, 255, 255, 0.673); 
     padding: 10px;
     box-sizing: border-box;
-    /* box-shadow:  2px 2px 0px gray,  -2px -2px 0px gray,  -2px 2px 0px gray,  2px -2px 0px gray; */
     border-radius: 10px;
 }
 
 .plag-results h2{
-    margin: 0 0 10px 0;
+    margin: 0px;
     color: #1e6955;
     font-weight: bold;
 }
 
-a:link{
-    color: blue;
+.submit-btn:hover {
+    transform: scale(1.1); 
+    background-color: #174d3f;
 }
-a:visited{
-    color: red;
+
+.add-challenge:hover {
+    transform: scale(1.1); 
+    background-color: #206d4e;
 }
 
 .links{
@@ -100,12 +154,14 @@ a:visited{
 
 a{
     overflow: auto;
-    width: 100%;
     display: block;
 }
 
+.lang{
+    font-weight: 400;
+}
+
 .options{
-    /* border: 1px solid black; */
     padding: 0;
     display: flex;
     justify-items: center;
@@ -117,8 +173,6 @@ a{
 .option-icon{
     height: 100%;
     width: 100%;
-    /* border: 1px solid red; */
-    /* background-color: gray; */
 }
 
 @media (min-width: 600px) {
@@ -127,3 +181,6 @@ a{
         width: 50%;
     }
 }
+
+
+  

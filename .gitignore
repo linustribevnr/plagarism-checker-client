@@ -9,7 +9,6 @@
 /coverage
 
 # production
-# /build
 /__pycache__
 
 # misc
